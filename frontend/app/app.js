@@ -4,8 +4,10 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.recipes',
-  'myApp.view2',
+  'myApp.recipeDetail',
+  'myApp.addRecipe',
   'myApp.version',
+  'myApp.editRecipe',
   'restangular'
 ]).
 config(['$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
