@@ -34,21 +34,18 @@ angular.module('myApp.recipeDetail', ['ngRoute'])
 
         };
 
-        //
-        // $scope.editRecipe = function() {
-        //    var confirmation = confirm ("Are you sure you want to delete? This can not be undone.");
-        //    if (confirmation){
-        //    Restangular.one('recipes', $scope.recipeId).customDELETE().then(function(){
-        //        alert("Your recipe was successfully deleted!");
-        //        $location.path('/recipes')
-        //    },
-        //    function(){
-        //        alert("No Can Do. Don't know enough to tell you what went wrong.")
-        //    });
-        //    }
-        //
-        //};
-        //
-        //
-        //
+        $scope.saveEditedRecipe = function() {
+            Restangular.one('recipes', $scope.recipeId).customPUT($scope.recipe).then(function(){
+                alert("Your recipe was successfully saved!");
+                $scope.editing = false;
+
+                //$location.path('/recipes') // if you want to redirect to some url after
+            },
+            function(){
+                alert("No Can Do. Don't know enough to tell you what went wrong.");
+            });
+
+
+        };
+
 }]);

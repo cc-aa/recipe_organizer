@@ -9,4 +9,14 @@
 <label>Recipe Directions:</label>
 <textarea ng-model="recipe.directions"></textarea>
 <br>
-<button>Save Recipe</button>
+
+<label>Ingredient</label>
+<input ng-model="ingredientName">
+<button ng-click="addIngredientToRecipe(ingredientName)"> Add Ingredient to Recipe</button>
+
+<br>
+<ol>
+    <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+</ol>
+
+<button ng-click="addRecipe()">Save Recipe</button>
