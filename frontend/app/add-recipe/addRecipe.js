@@ -22,13 +22,33 @@ angular.module('myApp.addRecipe', ['ngRoute'])
             }
         };
 
+        $scope.removeIngredientFromRecipe = function(ingredient) {
+            var index = $scope.recipe.ingredients.indexOf(ingredient);
+            if(index != -1) {
+                $scope.recipe.ingredients.splice(index, 1);
+            }
+        };
+
+
         $scope.addRecipe = function() {
             Restangular.all('add-recipe').customPOST($scope.recipe).then(function() {
-                alert("Recipe was successfully created!");
+                toastr.success("You successfully added the recipe!");
                 $scope.recipe = {};
             }, function() {
-                alert("There was a problem creating the recipe.");
+                toastr.error("You successfully added the recipe!");
             });
         };
+
+
+
+        $scope.addPhoto = function () {
+    var file = document.getElementById('file').files[0],
+        reader = new FileReader();
+    reader.onload = function(e){
+        $scope.recipe.photo = 'data:image/png;base64,' + btoa(e.target.result);
+        $scope.$apply();
+    };
+    reader.readAsBinaryString(file);
+};
 
 }]);

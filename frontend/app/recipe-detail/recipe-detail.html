@@ -8,8 +8,21 @@
 <input ng-model="recipe.directions" ng-show="editing"> <br>
 
 <ol>
-    <li ng-repeat="ingredient in recipe.ingredients"> {{ ingredient.name }} </li>
+    <li ng-repeat="ingredient in recipe.ingredients"> {{ ingredient.name }}
+    <i ng-click="removeIngredientFromRecipe(ingredient)" ng-show="editing"
+       class = "btn btn-xs btn-danger glyphicon glyphicon-remove"></i>
+    </li>
 </ol>
+
+<br>
+<div ng-show="editing">
+<label>Ingredient</label>
+<input ng-model="ingredientName">
+<button ng-click="addIngredientToRecipe(ingredientName)"> Add Ingredient to Recipe</button>
+</div>
+
+
+
 
 <button class="btn btn-sm btn-danger" ng-click="deleteRecipe()">Delete</button>
 <button class="btn btn-sm btn-info glyphicon glyphicon-pencil" ng-click="editing= !editing" ng-hide="editing" >Edit</button>
