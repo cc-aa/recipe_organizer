@@ -105,7 +105,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 
-MEDIA_ROOT = BASE_DIR + 'apps/recipes/media'
+MEDIA_ROOT = BASE_DIR + '/apps/recipes/media'
 
 MEDIA_URL = '/media/'
 
