@@ -22,7 +22,6 @@ class RecipeSerializer(serializers.ModelSerializer):
             recipe.ingredients.add(ingredient)
         return recipe
 
-
     def update(self, instance, validated_data):
         ingredients_data = validated_data.pop('ingredients')
 

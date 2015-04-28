@@ -1,6 +1,6 @@
 __author__ = 'Red'
 
-from django.conf.urls import url, patterns
+from django.conf.urls import url
 from django.conf import settings
 from views import RecipeList, RecipeDetail, AddRecipe
 
